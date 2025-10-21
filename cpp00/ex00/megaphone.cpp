@@ -15,8 +15,6 @@ int main (int ac, char **av)
         {
             std:: cout << (char)toupper(av[i][j]);
         }
-        if (av[1 + i])
-            std:: cout << " ";
     }
     std:: cout << std::endl;
 }

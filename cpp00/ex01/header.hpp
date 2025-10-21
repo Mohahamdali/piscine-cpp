@@ -1,17 +1,50 @@
 #ifndef header_cpp
 #define header_cpp
-
-
-class Phone_Book
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+class contact
 {
     private:
-        char contact[8];
+      std::string name;
+      std::string last_name;
+      std::string number;
+      std::string nickname;
+      std::string darkest_secret;
 
     public:
-        void display()
-        {
-            
-        }
-}
+      void set_fullname_and_number (const std::string &name1,const std::string &num,const std::string &nick, \
+        const std::string &secret, const std::string &last_name1);
+      void print ()
+      {
+        std:: cout  << "Name: " << name << std:: endl  << "last_name: "  << last_name << std::endl << "number: " << number << std:: endl \
+        << "Nickanme: " << nickname << std:: endl << "Secret fieled: " << darkest_secret <<std:: endl; 
+      }
 
+      std::string get_name()const;
+      std::string get_last_name()const;
+      std::string get_number()const;
+      std::string get_nick()const;
+      std::string get_secret()const;
+};
+
+class PhoneBook
+{
+  private:
+    contact contacts[8];
+    int     contact_count;
+  
+  public:
+    PhoneBook(){contact_count = 0;};
+    void add_contact (std::string &fullname,std::string &number, std::string &nickname, std::string & secret_field, std::string &last_name);
+    void print_contacts()
+    {
+        for (int i = 0; i < contact_count; ++i)
+        {
+            contacts[i].print();
+        }
+      }
+    void search_contact();
+};
+ std::string truncut (std::string &str);
 #endif
