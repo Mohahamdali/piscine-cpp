@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <iomanip>
+
 class contact
 {
     private:
@@ -11,16 +12,10 @@ class contact
       std::string number;
       std::string nickname;
       std::string darkest_secret;
-
     public:
       void set_fullname_and_number (const std::string &name1,const std::string &num,const std::string &nick, \
         const std::string &secret, const std::string &last_name1);
-      void print ()
-      {
-        std:: cout  << "Name: " << name << std:: endl  << "last_name: "  << last_name << std::endl << "number: " << number << std:: endl \
-        << "Nickanme: " << nickname << std:: endl << "Secret fieled: " << darkest_secret <<std:: endl; 
-      }
-
+      void print ();
       std::string get_name()const;
       std::string get_last_name()const;
       std::string get_number()const;
@@ -37,13 +32,6 @@ class PhoneBook
   public:
     PhoneBook(){contact_count = 0;};
     void add_contact (std::string &fullname,std::string &number, std::string &nickname, std::string & secret_field, std::string &last_name);
-    void print_contacts()
-    {
-        for (int i = 0; i < contact_count; ++i)
-        {
-            contacts[i].print();
-        }
-      }
     void search_contact();
 };
  std::string truncut (std::string &str);

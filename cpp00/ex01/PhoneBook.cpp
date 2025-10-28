@@ -1,21 +1,25 @@
-#include "header.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhamdali <mhamdali@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/27 15:11:40 by mhamdali          #+#    #+#             */
+/*   Updated: 2025/10/27 16:01:21 by mhamdali         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "PhoneBook.hpp"
 
 
-void contact::print()
+std::string truncut(std::string &str)
 {
-    std:: cout  << "Name: " << name << std:: endl  << "last_name: "  << last_name << std::endl << "number: " << number << std:: endl \
-        << "Nickanme: " << nickname << std:: endl << "Secret fieled: " << darkest_secret << std:: endl; 
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    return str;
 }
 
-void contact::set_fullname_and_number (const std::string &name1,const std::string &num,const std::string &nick, \
-    const std::string &secret, const std::string &last_name1)
-{
-    name = name1;
-    last_name = last_name1;
-    number = num;
-    nickname = nick;
-    darkest_secret = secret;
-}
 
 void PhoneBook::add_contact (std::string &fullname,std::string &number,std::string &nickname,\
     std::string &secret_field, std::string &last_name)
@@ -26,38 +30,6 @@ void PhoneBook::add_contact (std::string &fullname,std::string &number,std::stri
     if (contact_count < 8)
       contact_count++;
     
- }
-
- std::string contact::get_name()const
- {
-    return (name);
- }
-
- std::string contact::get_last_name ()const
- {
-    return  (last_name);
- }
-
- std::string contact::get_nick ()const
- {
-    return (nickname);
- }
-
- std::string contact::get_number()const
- {
-    return (number);
- }
-
- std::string contact::get_secret ()const
- {
-    return (darkest_secret);
- }
-
- std::string truncut (const std::string &str)
- {
-    if (str.length() > 10)
-        return str.substr(0,9) + ".";
-    return str;
  }
 
  void PhoneBook::search_contact()
@@ -116,4 +88,3 @@ void PhoneBook::add_contact (std::string &fullname,std::string &number,std::stri
         break;
     }
  }
-

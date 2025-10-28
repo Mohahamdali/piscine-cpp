@@ -1,7 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRC = cpp.cpp helper.cpp
+SRC = main.cpp Contact.cpp PhoneBook.cpp
 OBJ = $(SRC:.cpp=.o)
 NAME = iphonix
 
@@ -10,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp header.hpp
+%.o: %.cpp Contact.hpp PhoneBook.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
